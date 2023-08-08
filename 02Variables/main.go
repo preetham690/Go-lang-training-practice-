@@ -14,6 +14,10 @@ type integer = int //typeDef
 func main() {
 	fmt.Println(reflect.TypeOf(PI_SQR))
 
+	var a int = 2
+
+	fmt.Println(reflect.TypeOf(a))
+
 	var num1 integer = 100001234
 	var num2 rune = 'a' //nothing but the int32
 	var num3 int32 = 'b'

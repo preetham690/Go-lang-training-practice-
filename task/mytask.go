@@ -1,0 +1,1 @@
+//create a 6d array and assign them a random value using random method and print them 

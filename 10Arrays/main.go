@@ -10,7 +10,6 @@ func main() {
 	//for-range
 	for i, _ := range arr {
 		arr[i] = i
-
 	}
 	fmt.Println(arr)
 

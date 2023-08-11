@@ -1,3 +1,3 @@
-module demo
+module conditionsal
 
 go 1.20

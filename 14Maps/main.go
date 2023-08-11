@@ -41,6 +41,6 @@ func countVal() {
 	mp := make(map[int]int)
 
 	for i, _ := range mp {
-		mp[i] = slice[i]
+		mp[i]
 	}
 }

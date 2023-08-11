@@ -1,0 +1,21 @@
+go 1.20
+
+use (
+	./01HelloWorld
+	./02Variables
+	./03Strings
+	./04conversions
+	./05any
+	./06Functions
+	./07conditional_Statements
+	./08switch_Statements
+	./09loops
+	./10Arrays
+	./11pointers
+	./12slices
+	./13variadic
+	./14Maps
+	./15UserDefinedTypes
+	./17Interfaces
+	./task
+)

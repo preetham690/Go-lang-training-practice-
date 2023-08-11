@@ -1,3 +1,3 @@
-module demo
+module udt
 
 go 1.20

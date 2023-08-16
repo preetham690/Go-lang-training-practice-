@@ -17,5 +17,21 @@ use (
 	./14Maps
 	./15UserDefinedTypes
 	./17Interfaces
+	./21Anonymous_function
+	./22error_handling
+	./23panic
+	./24Defer
+	./25Defer
+	./26Recover
+	./27Goroutine
+	./28waitgroups
+	./29Channels
+	./30channels
+	./31channels
+	./32channels
+	./33channels
+	./task-on-channels
 	./task
+	././task/task15
+	
 )

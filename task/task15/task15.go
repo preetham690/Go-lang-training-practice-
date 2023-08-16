@@ -4,17 +4,23 @@ package main
 
 import (
 	"fmt"
-	"taskOnInter/interfaces"
+	interfaces "taskOnInter/Interface"
 	"taskOnInter/shape"
 )
 
 func main() {
 	r1 := &shape.Circle{R: 20}
+	fmt.Println(r1)
 
-	var s1 shape.Circle = 24.9
+	var s1 shape.Circle
+	s1.R = 12.43
 
-	slice3 := make([]interfaces.IAreaPerimeter, 0)
+	slice1 := make([]interfaces.IAreaPerimeter, 0)
+	slice1 = append(slice1, r1, &s1)
 
+	for _, iface := range slice1 {
+		AreaAndPetimeter(iface)
+	}
 }
 
 func Area(iarea interfaces.IArea) { // interface as a parameter.It can be a form of dependency injecttion

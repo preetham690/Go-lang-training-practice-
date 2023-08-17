@@ -31,10 +31,13 @@ func main() {
 		fmt.Println("line:", i, "-", val)
 		go countChars(ch)
 		ch <- val
+		fmt.Println()
 		go countWords(ch, i)
 		ch <- val
+		fmt.Println()
 		go countVowelsAndConsonants(ch, i)
 		ch <- val
+		fmt.Println()
 	}
 
 	//var wg sync.WaitGroup

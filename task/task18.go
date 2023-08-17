@@ -9,10 +9,6 @@ func main() {
 }
 
 func Calc(a, b any) float64 {
-
-	// if a.(type) != int || a.(type) != int8 || a.(type) != int16 || a.(type) != int32 || a.(type) != int64 || a.(type) != uint || a.(type) != uint8 || a.(type) != uint16 ||a.(type) != uint32 || a.(type) != uint64 {
-
-	// }
 	defer RecoverMe()
 	sum := 0.0
 	switch a.(type) {
@@ -44,6 +40,6 @@ func Calc(a, b any) float64 {
 
 func RecoverMe() {
 	if pan := recover(); pan != nil {
-		fmt.Println(pan, "panic is recovered")
+		fmt.Printf("%v \npanic is recovered \n", pan)
 	}
 }

@@ -30,8 +30,11 @@ use (
 	./31channels
 	./32channels
 	./33channels
-	./task-on-channels
+	./34channels
+	./35BufferChannels
+	./36HTTP
+	././task/task19
 	./task
 	././task/task15
-	
+	././task/task22
 )

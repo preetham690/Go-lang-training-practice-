@@ -35,6 +35,7 @@ use (
 	./36HTTP
 	./37GorillaMux
 	./38Gorilla
+	./39escape-analysis
 	././task/task19
 	./task
 	././task/task15

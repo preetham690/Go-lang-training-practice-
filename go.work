@@ -33,7 +33,8 @@ use (
 	./34channels
 	./35BufferChannels
 	./36HTTP
-	./37httpreqs
+	./37GorillaMux
+	./38Gorilla
 	././task/task19
 	./task
 	././task/task15

@@ -36,6 +36,8 @@ use (
 	./37GorillaMux
 	./38Gorilla
 	./39escape-analysis
+	./40glog
+	./41mongoDB
 	././task/task19
 	./task
 	././task/task15

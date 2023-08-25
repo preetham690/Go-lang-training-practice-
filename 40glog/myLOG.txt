@@ -1,0 +1,1 @@
+2023/08/18 11:47:00 We are logging in Golang!

@@ -16,6 +16,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -23,6 +24,8 @@ func main() {
 	fmt.Println("Server started and listing in port 9091")
 
 	http.HandleFunc("/EmpDet", EmpDetails)
+
+	http.HandleFunc("/delete", DeleteEmployee)
 
 	err := http.ListenAndServe("0.0.0.0:9091", nil)
 	if err != nil {
@@ -106,9 +109,9 @@ func EmpDetails(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (eh *EmployeeHandler) DeleteEmployee(w http.ResponseWriter, r *http.Request) {
-	values := r.URL.Query()
-	id := values.Get("id")
+// (eh *EmployeeHandler)
+func DeleteEmployee(w http.ResponseWriter, r *http.Request) {
+	id := r.URL.Query().Get("id")
 	if id == "" {
 		w.Write([]byte("invalid id"))
 		w.WriteHeader(400)
@@ -119,6 +122,41 @@ func (eh *EmployeeHandler) DeleteEmployee(w http.ResponseWriter, r *http.Request
 
 	// Delete that row from the file
 	// if no row with that id then it should say "details not found"
+
+	file, err := os.ReadFile("output.txt")
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Internal server error"))
+		return
+	}
+
+	lines := strings.Split(string(file), "\n")
+	var newLines []string
+	deleted := false
+
+	for _, line := range lines {
+		parts := strings.Split(line, ",")
+		if len(parts) > 0 && parts[0] != id {
+			newLines = append(newLines, line)
+		} else {
+			deleted = true
+		}
+	}
+
+	if !deleted {
+		http.Error(w, "Record not found", http.StatusNotFound)
+		return
+	}
+
+	//writing the updated contents back to the file
+	newContent := strings.Join(newLines, "\n")
+	err = os.WriteFile("output.txt", []byte(newContent), 0644)
+	if err != nil {
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusNoContent)
 
 }
 
